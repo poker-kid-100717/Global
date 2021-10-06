@@ -55,7 +55,7 @@ namespace WorldCities.Controllers
             var worksheet = excelPackage.Workbook.Worksheets[0];
 
             // define how many rows we want to process
-            var nEndRow = worksheet.Dimension.End.Row;
+            var nEndRow = 2500;
 
             // initialize the record counters 
             var numberOfCountriesAdded = 0;

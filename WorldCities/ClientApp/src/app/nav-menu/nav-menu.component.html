@@ -16,9 +16,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
         [ngClass]="{ show: isExpanded }"
       >
+        <app-login-menu></app-login-menu>
         <ul class="navbar-nav flex-grow">
           <li
             class="nav-item"
@@ -28,17 +29,16 @@
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
+            <a class="nav-link text-dark" [routerLink]="['/cities']"
+              >Cities</a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
+            <a class="nav-link text-dark" [routerLink]="['/countries']"
+              >Countries</a
             >
           </li>
         </ul>
-        <app-login-menu></app-login-menu>
       </div>
     </div>
   </nav>

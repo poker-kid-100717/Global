@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using System.Security;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
+using WorldCities.Models;
 
 namespace WorldCities.Controllers
 {

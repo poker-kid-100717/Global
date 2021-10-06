@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities", "WorldCities\WorldCities.csproj", "{12FCE720-E1E6-41BC-9EFD-9C73CB208438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCheck", "HealthCheck\HealthCheck.csproj", "{A6A80EC5-F044-4ACB-AC87-3226E66897DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12FCE720-E1E6-41BC-9EFD-9C73CB208438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12FCE720-E1E6-41BC-9EFD-9C73CB208438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12FCE720-E1E6-41BC-9EFD-9C73CB208438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12FCE720-E1E6-41BC-9EFD-9C73CB208438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6A80EC5-F044-4ACB-AC87-3226E66897DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6A80EC5-F044-4ACB-AC87-3226E66897DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6A80EC5-F044-4ACB-AC87-3226E66897DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6A80EC5-F044-4ACB-AC87-3226E66897DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9CBE90B-8BE3-455B-97A5-78473ADB4AF0}
+	EndGlobalSection
+EndGlobal

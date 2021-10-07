@@ -1,8 +1,44 @@
 table {
-  width: 100%;
+  width: 90%;
+  font-size: 12px;
 }
 
 .mat-form-field {
-  font-size: 14px;
+  font-size: 12px;
+  width: 10%;
+}
+
+label {
+  display: block;
+  color: white;
+  margin: 0 0 4px;
+}
+
+input {
+  border: #000;
+  padding: 10px;
+  font-size: 1.2em;
   width: 100%;
+}
+
+  input::placeholder {
+    color: red;
+  }
+
+label, input {
+  font-family: sans-serif;
+}
+
+p.line {
+  white-space: pre-wrap;
+  width: stretch;
+  font-size: medium;
+}
+
+p.line-header {
+  white-space: pre-wrap;
+  width: stretch;
+  text-align: center;
+  font-size: medium;
+  padding-top: 3em;
 }

@@ -1,6 +1,7 @@
 
 .home-cover {
-  display:block;
-  margin: auto;
+  display:inline-block;
+  margin: 10em, 10em, 10em, 10em;
   max-width:100%;
+  padding-right: 20em;
 }

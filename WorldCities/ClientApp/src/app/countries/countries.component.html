@@ -1,20 +1,18 @@
-<div class="text-left" *ngIf="countries">
+<ng-container class="text-left" *ngIf="countries">
   <h5 class="line-header" style="padding-top:1em"><strong><em>Countries</em></strong></h5>
   <p *ngIf="!countries"><em>Loading...</em></p>
-  <div class="commands text-right">
+  <ng-container>
+    <input matInput (keyup)="loadData($event.target.value)" style="width:fit-content; height:fit-content;" type="text" placeholder="Search:" />
+  </ng-container>
+  <ng-container class="commands text-right">
     <button type="button"
             [routerLink]="['/country']"
-            class="btn btn-success btn-sm text-right"
-            style="margin-right: 8.5em;">
+            class="btn btn-success btn-sm"
+            style="margin-left:30em">
       <small><strong><em>Add Country</em></strong></small>
     </button>
-  </div>
-</div>
-
-<mat-form-field [hidden]="!countries">
-  <input matInput (keyup)="onFilterTextChanged($event.target.value)"
-         type="text" placeholder="Filter by name (or part of it)...">
-</mat-form-field>
+  </ng-container>
+</ng-container>
 
 <table mat-table [dataSource]="countries" class="table-striped mat-elevation-z8" [hidden]="!countries"
        matSort (matSortChange)="loadData()"
@@ -55,10 +53,11 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-﻿
-<!-- Pagination directive -->
-<mat-paginator [hidden]="!countries"
-               (page)="getData($event)"
-               [pageSize]="10"
-               [pageSizeOptions]="[10, 20, 50]"
-               style="padding-left:4em; margin-top:50px;"></mat-paginator>
+
+  <mat-paginator [hidden]="!countries"
+                 (page)="getData($event)"
+                 [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 aria-label="Select page"></mat-paginator>
+

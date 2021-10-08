@@ -1,29 +1,26 @@
-<h1>Cities</h1>
-
-<p>Here's a list of cities: feel free to play with it.</p>
-
-<p *ngIf="!cities"><em>Loading...</em></p>
-
-<div class="commands text-right" *ngIf="cities">
-  <button type="button"
-          [routerLink]="['/city']"
-          class="btn btn-success">
-      Add a new City
-  </button>
-</div>
-
-<mat-form-field [hidden]="!cities">
-    <input matInput (keyup)="onFilterTextChanged($event.target.value)"
-        placeholder="Filter by name (or part of it)...">
-</mat-form-field>
+<ng-container class="text-left" *ngIf="cities">
+  <h5 class="line-header" style="padding-top:1em"><strong><em>Cities</em></strong></h5>
+  <p *ngIf="!cities"><em>Loading...</em></p>
+  <ng-container>
+    <input matInput (keyup)="loadData($event.target.value)" style="width:fit-content; height:fit-content;" type="text" placeholder="Search:" />
+  </ng-container>
+  <ng-container class="commands text-right">
+    <button type="button"
+            [routerLink]="['/city']"
+            class="btn btn-success btn-sm"
+            style="margin-left:30em">
+      <small><strong><em>Add City</em></strong></small>
+    </button>
+  </ng-container>
+</ng-container>
 
 <table mat-table [dataSource]="cities" class="table-striped mat-elevation-z8" [hidden]="!cities"
-    matSort (matSortChange)="loadData()"
-    matSortActive="{{defaultSortColumn}}" matSortDirection="{{defaultSortOrder}}">
+       matSort (matSortChange)="loadData()"
+       matSortActive="{{defaultSortColumn}}" matSortDirection="{{defaultSortOrder}}">
 
   <!-- Id Column -->
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>City ID</th>
     <td mat-cell *matCellDef="let city"> {{city.id}} </td>
   </ng-container>
 
@@ -61,7 +58,7 @@
 ﻿
 <!-- Pagination directive -->
 <mat-paginator [hidden]="!cities"
-    (page)="getData($event)"
-    [pageSize]="10"
-    [pageSizeOptions]="[10, 20, 50]"
-    showFirstLastButtons></mat-paginator>
+               (page)="getData($event)"
+               [length]="100"
+               [pageSize]="10"
+               aria-label="Select page"></mat-paginator>

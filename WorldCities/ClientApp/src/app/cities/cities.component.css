@@ -1,6 +1,6 @@
 table {
-  width: 90%;
-  font-size: 12px;
+  width: 100%;
+  font-size: 14px;
 }
 
 .mat-form-field {
@@ -15,14 +15,17 @@ label {
 }
 
 input {
-  border: #000;
-  padding: 10px;
-  font-size: 1.2em;
-  width: 100%;
+  border: solid;
+  border-style: groove;
+  width: fit-content;
+  padding-right: 25em;
+  font-size: 1em;
+  width: 20%;
 }
 
   input::placeholder {
-    color: red;
+    color: black;
+    font-size: .75em;
   }
 
 label, input {

@@ -7,78 +7,78 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CityService
-    extends BaseService {
-    constructor(
-        http: HttpClient,
-        @Inject('BASE_URL') baseUrl: string) {
-        super(http, baseUrl);
+  extends BaseService {
+  constructor(
+    http: HttpClient,
+    @Inject('BASE_URL') baseUrl: string) {
+    super(http, baseUrl);
+  }
+
+  getData<ApiResult>(
+    pageIndex: number,
+    pageSize: number,
+    sortColumn: string,
+    sortOrder: string,
+    filterColumn: string,
+    filterQuery: string
+  ): Observable<ApiResult> {
+    var url = this.baseUrl + 'api/Cities';
+    var params = new HttpParams()
+      .set("pageIndex", pageIndex.toString())
+      .set("pageSize", pageSize.toString())
+      .set("sortColumn", sortColumn)
+      .set("sortOrder", sortOrder);
+
+    if (filterQuery) {
+      params = params
+        .set("filterColumn", filterColumn)
+        .set("filterQuery", filterQuery);
     }
 
-    getData<ApiResult>(
-        pageIndex: number,
-        pageSize: number,
-        sortColumn: string,
-        sortOrder: string,
-        filterColumn: string,
-        filterQuery: string
-    ): Observable<ApiResult> {
-        var url = this.baseUrl + 'api/Cities';
-        var params = new HttpParams()
-            .set("pageIndex", pageIndex.toString())
-            .set("pageSize", pageSize.toString())
-            .set("sortColumn", sortColumn)
-            .set("sortOrder", sortOrder);
+    return this.http.get<ApiResult>(url, { params });
+  }
 
-        if (filterQuery) {
-            params = params
-                .set("filterColumn", filterColumn)
-                .set("filterQuery", filterQuery);
-        }
+  get<City>(id): Observable<City> {
+    var url = this.baseUrl + "api/Cities/" + id;
+    return this.http.get<City>(url);
+  }
 
-        return this.http.get<ApiResult>(url, { params });
+  put<City>(item): Observable<City> {
+    var url = this.baseUrl + "api/Cities/" + item.id;
+    return this.http.put<City>(url, item);
+  }
+
+  post<City>(item): Observable<City> {
+    var url = this.baseUrl + "api/Cities";
+    return this.http.post<City>(url, item);
+  }
+
+  getCountries<ApiResult>(
+    pageIndex: number,
+    pageSize: number,
+    sortColumn: string,
+    sortOrder: string,
+    filterColumn: string,
+    filterQuery: string
+  ): Observable<ApiResult> {
+    var url = this.baseUrl + 'api/Countries';
+    var params = new HttpParams()
+      .set("pageIndex", pageIndex.toString())
+      .set("pageSize", pageSize.toString())
+      .set("sortColumn", sortColumn)
+      .set("sortOrder", sortOrder);
+
+    if (filterQuery) {
+      params = params
+        .set("filterColumn", filterColumn)
+        .set("filterQuery", filterQuery);
     }
 
-    get<City>(id): Observable<City> {
-        var url = this.baseUrl + "api/Cities/" + id;
-        return this.http.get<City>(url);
-    }
+    return this.http.get<ApiResult>(url, { params });
+  }
 
-    put<City>(item): Observable<City> {
-        var url = this.baseUrl + "api/Cities/" + item.id;
-        return this.http.put<City>(url, item);
-    }
-
-    post<City>(item): Observable<City> {
-        var url = this.baseUrl + "api/Cities";
-        return this.http.post<City>(url, item);
-    }
-
-    getCountries<ApiResult>(
-        pageIndex: number,
-        pageSize: number,
-        sortColumn: string,
-        sortOrder: string,
-        filterColumn: string,
-        filterQuery: string
-    ): Observable<ApiResult> {
-        var url = this.baseUrl + 'api/Countries';
-        var params = new HttpParams()
-            .set("pageIndex", pageIndex.toString())
-            .set("pageSize", pageSize.toString())
-            .set("sortColumn", sortColumn)
-            .set("sortOrder", sortOrder);
-
-        if (filterQuery) {
-            params = params
-                .set("filterColumn", filterColumn)
-                .set("filterQuery", filterQuery);
-        }
-
-        return this.http.get<ApiResult>(url, { params });
-    }
-
-    isDupeCity(item): Observable<boolean> {
-        var url = this.baseUrl + "api/Cities/IsDupeCity";
-        return this.http.post<boolean>(url, item);
-    }
+  isDupeCity(item): Observable<boolean> {
+    var url = this.baseUrl + "api/Cities/IsDupeCity";
+    return this.http.post<boolean>(url, item);
+  }
 }

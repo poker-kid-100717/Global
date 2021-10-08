@@ -63,6 +63,12 @@ export class CountriesComponent implements OnInit {
     this.getData(pageEvent);
   }
 
+  onKeyDown(pressedKey: any) {
+    if (pressedKey.key === "Enter") {
+      this.onFilterTextChanged(pressedKey);
+    }
+  }
+
   getData(event: PageEvent) {
 
     var sortColumn = (this.sort)
